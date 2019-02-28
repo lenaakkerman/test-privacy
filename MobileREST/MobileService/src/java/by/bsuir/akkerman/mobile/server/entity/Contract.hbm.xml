@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07.12.2015 0:24:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="by.bsuir.akkerman.mobile.server.entity.Contract" table="contract" catalog="mobile" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="typePerson" class="by.bsuir.akkerman.mobile.server.entity.TypePerson" fetch="select">
+            <column name="ID_type" not-null="true" />
+        </many-to-one>
+        <property name="contractNumber" type="int">
+            <column name="contract_number" not-null="true" />
+        </property>
+        <property name="dateOfConclusion" type="date">
+            <column name="date_of_conclusion" length="10" not-null="true" />
+        </property>
+        <property name="telephoneNumber" type="int">
+            <column name="telephone_number" not-null="true" />
+        </property>
+        <property name="surnameClient" type="string">
+            <column name="surname_client" not-null="true" />
+        </property>
+        <property name="nameClient" type="string">
+            <column name="name_client" not-null="true" />
+        </property>
+        <property name="patronymicClient" type="string">
+            <column name="patronymic_client" />
+        </property>
+        <set name="subscribers" table="subscriber" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_contract" not-null="true" />
+            </key>
+            <one-to-many class="by.bsuir.akkerman.mobile.server.entity.Subscriber" />
+        </set>
+    </class>
+</hibernate-mapping>

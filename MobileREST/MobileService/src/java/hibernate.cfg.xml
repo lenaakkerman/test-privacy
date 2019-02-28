@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mobile</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">MYSQL</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+    <mapping resource="by/bsuir/akkerman/mobile/server/entity/SmsInfo.hbm.xml"/>
+    <mapping resource="by/bsuir/akkerman/mobile/server/entity/CallInfo.hbm.xml"/>
+    <mapping resource="by/bsuir/akkerman/mobile/server/entity/VoiceMessage.hbm.xml"/>
+    <mapping resource="by/bsuir/akkerman/mobile/server/entity/CallForwarding.hbm.xml"/>
+    <mapping resource="by/bsuir/akkerman/mobile/server/entity/GroupTariff.hbm.xml"/>
+    <mapping resource="by/bsuir/akkerman/mobile/server/entity/MmsInfo.hbm.xml"/>
+    <mapping resource="by/bsuir/akkerman/mobile/server/entity/Subscriber.hbm.xml"/>
+    <mapping resource="by/bsuir/akkerman/mobile/server/entity/Contract.hbm.xml"/>
+    <mapping resource="by/bsuir/akkerman/mobile/server/entity/TariffPlan.hbm.xml"/>
+    <mapping resource="by/bsuir/akkerman/mobile/server/entity/InternetInfo.hbm.xml"/>
+    <mapping resource="by/bsuir/akkerman/mobile/server/entity/TypePerson.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

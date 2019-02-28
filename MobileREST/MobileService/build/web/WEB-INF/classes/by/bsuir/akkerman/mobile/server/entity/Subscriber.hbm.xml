@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07.12.2015 0:24:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="by.bsuir.akkerman.mobile.server.entity.Subscriber" table="subscriber" catalog="mobile" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="callForwarding" class="by.bsuir.akkerman.mobile.server.entity.CallForwarding" fetch="select">
+            <column name="ID_call_forwarding" not-null="true" />
+        </many-to-one>
+        <many-to-one name="contract" class="by.bsuir.akkerman.mobile.server.entity.Contract" fetch="select">
+            <column name="ID_contract" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tariffPlan" class="by.bsuir.akkerman.mobile.server.entity.TariffPlan" fetch="select">
+            <column name="ID_tariff_plan" not-null="true" />
+        </many-to-one>
+        <property name="roaming" type="string">
+            <column name="roaming" length="10" />
+        </property>
+        <set name="smsInfosForToSubscriberId" table="sms_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="to_subscriber_id" not-null="true" />
+            </key>
+            <one-to-many class="by.bsuir.akkerman.mobile.server.entity.SmsInfo" />
+        </set>
+        <set name="internetInfos" table="internet_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="subscriber_id" not-null="true" />
+            </key>
+            <one-to-many class="by.bsuir.akkerman.mobile.server.entity.InternetInfo" />
+        </set>
+        <set name="mmsInfosForToSubscriberId" table="mms_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="to_subscriber_id" not-null="true" />
+            </key>
+            <one-to-many class="by.bsuir.akkerman.mobile.server.entity.MmsInfo" />
+        </set>
+        <set name="voiceMessagesForToSubscriberId" table="voice_message" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="to_subscriber_id" not-null="true" />
+            </key>
+            <one-to-many class="by.bsuir.akkerman.mobile.server.entity.VoiceMessage" />
+        </set>
+        <set name="mmsInfosForFromSubscriberId" table="mms_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="from_subscriber_id" not-null="true" />
+            </key>
+            <one-to-many class="by.bsuir.akkerman.mobile.server.entity.MmsInfo" />
+        </set>
+        <set name="voiceMessagesForFromSubscriberId" table="voice_message" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="from_subscriber_id" not-null="true" />
+            </key>
+            <one-to-many class="by.bsuir.akkerman.mobile.server.entity.VoiceMessage" />
+        </set>
+        <set name="callInfosForFromSubscriberId" table="call_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="from_subscriber_id" not-null="true" />
+            </key>
+            <one-to-many class="by.bsuir.akkerman.mobile.server.entity.CallInfo" />
+        </set>
+        <set name="callInfosForToSubscriberId" table="call_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="to_subscriber_id" not-null="true" />
+            </key>
+            <one-to-many class="by.bsuir.akkerman.mobile.server.entity.CallInfo" />
+        </set>
+        <set name="smsInfosForFromSubscriberId" table="sms_info" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="from_subscriber_id" not-null="true" />
+            </key>
+            <one-to-many class="by.bsuir.akkerman.mobile.server.entity.SmsInfo" />
+        </set>
+    </class>
+</hibernate-mapping>

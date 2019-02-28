@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07.12.2015 0:24:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="by.bsuir.akkerman.mobile.server.entity.VoiceMessage" table="voice_message" catalog="mobile" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="subscriberByToSubscriberId" class="by.bsuir.akkerman.mobile.server.entity.Subscriber" fetch="select">
+            <column name="to_subscriber_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="subscriberByFromSubscriberId" class="by.bsuir.akkerman.mobile.server.entity.Subscriber" fetch="select">
+            <column name="from_subscriber_id" not-null="true" />
+        </many-to-one>
+        <property name="messageDate" type="date">
+            <column name="message_date" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

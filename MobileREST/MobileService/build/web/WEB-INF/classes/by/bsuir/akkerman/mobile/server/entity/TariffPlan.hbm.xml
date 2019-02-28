@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 07.12.2015 0:24:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="by.bsuir.akkerman.mobile.server.entity.TariffPlan" table="tariff_plan" catalog="mobile" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="groupTariff" class="by.bsuir.akkerman.mobile.server.entity.GroupTariff" fetch="select">
+            <column name="ID_group_tariff" />
+        </many-to-one>
+        <property name="tariffName" type="string">
+            <column name="tariff_name" not-null="true" />
+        </property>
+        <property name="connectionFee" type="int">
+            <column name="connection_fee" not-null="true" />
+        </property>
+        <property name="callInNetFee" type="int">
+            <column name="call_in_net_fee" not-null="true" />
+        </property>
+        <property name="callOutNetFee" type="int">
+            <column name="call_out_net_fee" not-null="true" />
+        </property>
+        <property name="smsFee" type="int">
+            <column name="sms_fee" not-null="true" />
+        </property>
+        <property name="mmsFee" type="int">
+            <column name="mms_fee" not-null="true" />
+        </property>
+        <property name="includedTraffic" type="java.lang.Integer">
+            <column name="included_traffic" />
+        </property>
+        <property name="subscriptionFee" type="int">
+            <column name="subscription_fee" not-null="true" />
+        </property>
+        <property name="roamingFee" type="int">
+            <column name="roaming_fee" not-null="true" />
+        </property>
+        <set name="subscribers" table="subscriber" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_tariff_plan" not-null="true" />
+            </key>
+            <one-to-many class="by.bsuir.akkerman.mobile.server.entity.Subscriber" />
+        </set>
+    </class>
+</hibernate-mapping>

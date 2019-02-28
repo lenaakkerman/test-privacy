@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="mobile"/>
+  <table-filter match-name="internet_info"/>
+  <table-filter match-name="type_person"/>
+  <table-filter match-name="subscriber"/>
+  <table-filter match-name="group_tariff"/>
+  <table-filter match-name="contract"/>
+  <table-filter match-name="sms_info"/>
+  <table-filter match-name="voice_message"/>
+  <table-filter match-name="call_info"/>
+  <table-filter match-name="tariff_plan"/>
+  <table-filter match-name="mms_info"/>
+  <table-filter match-name="call_forwarding"/>
+</hibernate-reverse-engineering>
