@@ -21,6 +21,7 @@ public class CallInfo extends EntityHelper implements java.io.Serializable {
      private Date callTime;
      private Date duration;
      private Set<Subscriber> child = new HashSet<>(0); 
+     public Integer lenka;
 
     public CallInfo() {
     }
